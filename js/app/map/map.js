@@ -2034,6 +2034,7 @@ define([
 
         // system click events ========================================================================================
         let double = function(e){
+            e.stopPropagation();
             let system = $(this);
             let headElement = $(system).find('.' + config.systemHeadNameClass);
 
