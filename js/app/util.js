@@ -2405,6 +2405,9 @@ define([
             case '0.0':
                 areaId = 32;
                 break;
+            case 'P': //pochven
+                areaId = 29;
+                break;
             default:
                 // w-space
                 for (let i = 1; i <= 18; i++) {

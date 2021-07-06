@@ -240,6 +240,9 @@ define([], () => {
                 '0.0': {
                     class: 'pf-system-sec-nullSec'
                 },
+                'P': {
+                    class: 'pf-system-sec-pochven'
+                },
                 'C1': {
                     class: 'pf-system-sec-low'
                 },
@@ -584,7 +587,8 @@ define([], () => {
             4: 'K162 - H',
             5: 'K162 - L',
             6: 'K162 - 0.0',
-            7: 'K162 - C12 Thera'
+            7: 'K162 - C12 Thera',
+            8: 'k162 - POCHVEN'
         }
     };
 });
