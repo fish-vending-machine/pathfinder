@@ -483,7 +483,6 @@ define([
                         render: {
                             _: (data, type, row, meta) => {
                                 let value = Util.decodeUnicode(data.name.replace(/u'(?=[^:]+')/g, "'"));
-                                console.log(value);
                                 if(type === 'display'){
                                     value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis80Class + '">' + value + '</div>';
                                 }
