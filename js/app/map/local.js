@@ -484,7 +484,7 @@ define([
                             _: (data, type, row, meta) => {
                                 let value = data.name;
                                 if(type === 'display'){
-                                    value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis80Class + '">' + data.name + '</div>';
+                                    value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis80Class + '">' + decodeURI(data.name) + '</div>';
                                 }
                                 return value;
                             },
