@@ -31,6 +31,7 @@ define([
         systemClass: 'pf-system',                                       // class for all systems
         systemSelectedClass: 'pf-system-selected',                      // class for selected systems on a map
         systemHeadClass: 'pf-system-head',                              // class for system head
+        systemKSpaceHeadClass: 'pf-system-head-border-bottom',
         systemHeadNameClass: 'pf-system-head-name',                     // class for system name
         systemHeadCounterClass: 'pf-system-head-counter',               // class for system user counter
         systemHeadExpandClass: 'pf-system-head-expand',                 // class for system head expand arrow
@@ -430,13 +431,17 @@ define([
             let effectBasicClass = MapUtil.getEffectInfoForSystem('effect', 'class');
             let effectClass = MapUtil.getEffectInfoForSystem(data.effect, 'class');
             let secClass = Util.getSecurityClassForSystem(data.security);
+            let headClass = [config.systemHeadClass];
+            if (data.type.id !== 1) {
+                headClass.push(config.systemKSpaceHeadClass);
+            }
 
             system = $('<div>', {
                 id: systemId,
                 class: config.systemClass
             }).append(
                 $('<div>', {
-                    class: config.systemHeadClass
+                    class: headClass.join(' ')
                 }).append(
                     $('<span>', {
                         class: [config.systemSec, secClass].join(' '),
@@ -467,7 +472,8 @@ define([
                 ),
                 $('<div>', {
                     class: config.systemBodyClass
-                })
+                }),
+                System.getFooterInfoElement(data)
             );
 
             // set initial system position

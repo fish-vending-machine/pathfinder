@@ -22,6 +22,7 @@ define([
         systemHeadInfoClass: 'pf-system-head-info',                                     // class for system info
         systemHeadInfoLeftClass: 'pf-system-head-info-left',                            // class for left system info
         systemHeadInfoRightClass: 'pf-system-head-info-right',                          // class for right system info
+        systemFooterInfoClass: 'pf-system-footer-info',
 
         systemTooltipInnerIdPrefix: 'pf-system-tooltip-inner-',                         // id prefix for system tooltip content
         systemTooltipInnerClass: 'pf-system-tooltip-inner',                             // class for system tooltip content
@@ -812,10 +813,22 @@ define([
         return headInfo;
     };
 
+    let getFooterInfoElement = data => {
+        let footerInfo = null;
+        if (data.type.id !== 1) {
+            footerInfo = $('<div>', {
+                class: config.systemFooterInfoClass,
+                html: '<span>' + data.region.name + '</span>'
+            })
+        }
+        return footerInfo
+    }
+
     return {
         showNewSystemDialog: showNewSystemDialog,
         deleteSystems: deleteSystems,
         removeSystems: removeSystems,
-        getHeadInfoElement: getHeadInfoElement
+        getHeadInfoElement: getHeadInfoElement,
+        getFooterInfoElement: getFooterInfoElement
     };
 });

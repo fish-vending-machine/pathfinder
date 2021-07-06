@@ -373,6 +373,10 @@ $mapBubbleWidth:        30px;
       }
     }
 
+    .pf-system-head-border-bottom {
+      border-bottom: 2px solid #63676a;
+    }
+
     // ================================================================================================================
     .pf-system-head-info{
       display: flex;
@@ -395,6 +399,18 @@ $mapBubbleWidth:        30px;
     .pf-system-head-info-right{
       flex: 1;
       text-align: right;
+    }
+
+    .pf-system-footer-info{
+      flex: 1;
+      text-align: right;
+      min-width: 50px;
+      color: #adadad;
+      margin-left: 4px;
+      margin-right: 4px;
+      -webkit-font-smoothing: antialiased;
+      transform: translateY(0);
+      font-size: 11px;
     }
 
     // ================================================================================================================
