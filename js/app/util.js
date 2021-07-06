@@ -3730,7 +3730,7 @@ define([
 
         const latinRegex = /\\x[\d\w]{2})/gi;
         unicodeString = unicodeString.replace(latinRegex, (match, group) => {
-            return String.formCharCode(parseInt(group, 16));
+            return String.fromCharCode(parseInt(group, 16));
         });
 
         return decodeURI(unicodeString);
