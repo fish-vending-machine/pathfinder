@@ -766,7 +766,7 @@ define([
                         _: function(data, type, row){
                             let value = data;
                             if(data){
-                                value = decodeURI(data.name);
+                                value = decodeURI(data.name.replace(/u'(?=[^:]+')/g, "'")));
                                 if(type === 'display'){
                                     value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis100Class + '">' + value + '</div>';
                                 }

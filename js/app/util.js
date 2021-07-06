@@ -2595,7 +2595,7 @@ define([
                 row += userName;
                 row += '</td>';
                 row += '<td>';
-                row += decodeURI(shipName);
+                row += decodeURI(shipName.replace(/u'(?=[^:]+')/g, "'"));
                 row += '</td>';
                 row += '<td class="text-right txt-color txt-color-orangeLight">';
                 row += shipTypeName;
