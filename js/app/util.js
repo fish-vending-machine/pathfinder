@@ -3728,7 +3728,7 @@ define([
             return String.fromCharCode(parseInt(group, 16));
         });
 
-        const latinRegex = /\\x[\d\w]{2})/gi;
+        const latinRegex = /\\x([\d\w]{2})/gi;
         unicodeString = unicodeString.replace(latinRegex, (match, group) => {
             return String.fromCharCode(parseInt(group, 16));
         });
