@@ -482,9 +482,10 @@ define([
                         data: 'log.ship',
                         render: {
                             _: (data, type, row, meta) => {
-                                let value = data.name;
+                                let value = decodeURI(data.name);
+                                console.log(value);
                                 if(type === 'display'){
-                                    value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis80Class + '">' + decodeURI(data.name) + '</div>';
+                                    value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis80Class + '">' + value + '</div>';
                                 }
                                 return value;
                             },
