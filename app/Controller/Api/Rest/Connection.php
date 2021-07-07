@@ -82,7 +82,9 @@ class Connection extends AbstractRestController {
 
                 if(
                     !is_null($source) &&
-                    !is_null($target)
+                    !is_null($target) &&
+                    $target != 30000142 &&
+                    $source != 30000142
                 ){
                     /**
                      * @var $connection Pathfinder\ConnectionModel
