@@ -195,6 +195,7 @@ class Controller {
         $resource->register('url', self::getEnvironmentData('CCP_SSO_URL'), 'prerender');
         $resource->register('url', Config::getPathfinderData('api.ccp_image_server'), 'dns-prefetch');
         $resource->register('url', '//i.ytimg.com', 'dns-prefetch'); // YouTube tiny embed domain
+        header("Cache-Control: max-age=0");
 
         return $resource;
     }
