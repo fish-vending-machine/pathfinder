@@ -521,7 +521,7 @@
         12: 'U372 - T Pochven'
     };
 
-    let pochWH = {
+    let poWH = {
         1: 'R081 - C4',
         2: 'X450 - 0.0'
     };
@@ -626,7 +626,7 @@
                 5: nullWH
             },
             33: {   // Pochven
-                5: pochWH
+                5: poWH
             }
         }
     };
