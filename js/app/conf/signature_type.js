@@ -520,7 +520,7 @@
         11: 'U372 - POCHVEN'
     };
 
-    let poWH = {
+    let pochWH = {
         1: 'R081 - C4',
         2: 'X450 - 0.0'
     };
