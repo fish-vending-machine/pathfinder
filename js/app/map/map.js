@@ -480,7 +480,6 @@ define([
                 $('<div>', {
                     class: config.systemBodyClass
                 }),
-                System.getFooterInfoElement(data)
             );
 
             // set initial system position
