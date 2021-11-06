@@ -357,6 +357,7 @@ define([
                         className: 'text-center',
                         searchable: false,
                         data: 'effect',
+                        defaultContent: '',
                         render: {
                             display: (cellData, type, rowData, meta) => {
                                 let value = '';
@@ -376,9 +377,11 @@ define([
                         render: {
                             _: (cellData, type, rowData, meta) => {
                                 let statics = [];
-                                for(let wormholeName of cellData){
-                                    let wormholeData = Object.assign({}, Init.wormholes[wormholeName]);
-                                    statics.push('<span class="' + wormholeData.class + '">' + wormholeData.security + '</span>');
+                                if(Array.isArray(cellData)) {
+                                    for (let wormholeName of cellData) {
+                                        let wormholeData = Object.assign({}, Init.wormholes[wormholeName]);
+                                        statics.push('<span class="' + wormholeData.class + '">' + wormholeData.security + '</span>');
+                                    }
                                 }
                                 return statics.join('&nbsp;&nbsp;');
                             }
@@ -768,7 +771,7 @@ define([
                             if(data){
                                 value = Util.decodeUnicode(data.name.replace(/u'(?=[^:]+')/g, "'"));
                                 if(type === 'display'){
-                                    value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis100Class + '">' + value + '</div>';
+                                    value = '<div class="' + MapUtil.config.tableCellEllipsisClass + ' ' + MapUtil.config.tableCellEllipsis100Class + '">' + Util.unicodeToString(data.name) + '</div>';
                                 }
                             }
 

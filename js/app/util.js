@@ -59,8 +59,9 @@ define([
         menuButtonFullScreenId: 'pf-menu-button-fullscreen',                    // id for menu button "fullScreen"
         menuButtonMagnetizerId: 'pf-menu-button-magnetizer',                    // id for menu button "magnetizer"
         menuButtonGridId: 'pf-menu-button-grid',                                // id for menu button "grid snap"
-        menuButtonEndpointId: 'pf-menu-button-endpoint',                        // id for menu button "endpoint" overlays
+        menuButtonRegionId: 'pf-menu-button-region',                            // id for menu button "region" info on systems
         menuButtonCompactId: 'pf-menu-button-compact',                          // id for menu button "compact" UI map view
+        menuButtonEndpointId: 'pf-menu-button-endpoint',                        // id for menu button "endpoint" overlays
         menuButtonMapDeleteId: 'pf-menu-button-map-delete',                     // id for menu button "delete map"
 
         // footer
@@ -967,6 +968,19 @@ define([
     };
 
     /**
+     * convert unicode to string
+     * @param text
+     * @returns {String}
+     */
+    let unicodeToString = (text) => {
+      let result = text.replace(/\\u[\dA-F]{4}/gi,
+        function (match) {
+          return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+      });
+      return result.substring(0, 2) == "u'" ? result.substring(2, result.length - 1) : result;
+    };
+
+    /**
      * polyfill for "passive" events
      * -> see https://github.com/zzarcon/default-passive-events
      */
@@ -979,7 +993,7 @@ define([
         const supportedPassiveTypes = [
             'scroll', 'wheel',
             'touchstart', 'touchmove', 'touchenter', 'touchend', 'touchleave',
-            //'mouseout', 'mouseleave', 'mouseup', 'mousedown', 'mousemove', 'mouseenter', 'mousewheel', 'mouseover'
+            'mouseout', 'mouseleave', 'mouseup', 'mousedown', 'mousemove', 'mouseenter', 'mousewheel', 'mouseover'
         ];
         const getDefaultPassiveOption = (passive, eventName) => {
             if (passive !== undefined) return passive;
@@ -2405,8 +2419,8 @@ define([
             case '0.0':
                 areaId = 32;
                 break;
-            case 'P': //pochven
-                areaId = 29;
+            case 'T':
+                areaId = 33;
                 break;
             default:
                 // w-space
@@ -2577,20 +2591,19 @@ define([
     };
 
     /**
-     * get a HTML table with universe region information
+     * get a HTML table with universe sovereignty data
      * e.g. for popover
-     * @param regionName
      * @param sovereignty
      * @returns {string}
      */
-    let getSystemRegionTable = (regionName, sovereignty) => {
-        let data = [{label: 'Region', value: regionName}];
-        if (sovereignty) {
-            if (sovereignty.faction) {
-                data.push({label: 'Sov. Faction', value: sovereignty.faction.name});
+    let getSystemSovereigntyTable = sovereignty => {
+        let data = [];
+        if(sovereignty){
+            if(sovereignty.faction){
+                data.push({label: 'Faction', value: sovereignty.faction.name});
             }
-            if (sovereignty.alliance) {
-                data.push({label: 'Sov. Ally', value: sovereignty.alliance.name});
+            if(sovereignty.alliance){
+                data.push({label: 'Alliance', value: sovereignty.alliance.name});
             }
         }
 
@@ -3389,6 +3402,8 @@ define([
         }
     };
 
+
+
     /**
      * get ResizeManager instance
      * @returns {ResizeManager}
@@ -3745,6 +3760,7 @@ define([
         showVersionInfo: showVersionInfo,
         imgRoot: imgRoot,
         eveImageUrl: eveImageUrl,
+        unicodeToString: unicodeToString,
         initPassiveEvents: initPassiveEvents,
         initDefaultBootboxConfig: initDefaultBootboxConfig,
         initDefaultTooltipConfig: initDefaultTooltipConfig,
@@ -3780,7 +3796,7 @@ define([
         getSystemEffectData: getSystemEffectData,
         getSystemEffectTable: getSystemEffectTable,
         getSystemPlanetsTable: getSystemPlanetsTable,
-        getSystemRegionTable: getSystemRegionTable,
+        getSystemSovereigntyTable: getSystemSovereigntyTable,
         getSystemPilotsTable: getSystemPilotsTable,
         getSystemsInfoTable: getSystemsInfoTable,
         getStatusInfoForCharacter: getStatusInfoForCharacter,
