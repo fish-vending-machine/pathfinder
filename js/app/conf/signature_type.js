@@ -613,7 +613,7 @@
         }, // system type (k-space)
         2: {
             29:{ //POCHVEN
-              5: poWH
+              5: pochWH
             },
             30: {   // High Sec
                 5: hsWH
