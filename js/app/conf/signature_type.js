@@ -39,7 +39,10 @@
         1: 'Frontier Barracks',
         2: 'Frontier Command Post',
         3: 'Integrated Terminus',
-        4: 'Sleeper Information Sanctum'
+        4: {
+		name: '(Sleeper Information Sanctum|슬리퍼 정보 생텀)',
+		label:'Sleeper Information Sanctum'
+	}
     };
 
     let c5Combat = {
