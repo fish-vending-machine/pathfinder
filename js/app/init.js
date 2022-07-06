@@ -513,27 +513,27 @@ define([], () => {
         // signature groups
         signatureGroups: {
             1: {
-                name: '(combat site|kampfgebiet|site de combat|Боевой район|战斗地点)',
+                name: '(combat site|kampfgebiet|site de combat|Боевой район|战斗地点|전투 사이트)',
                 label: 'Combat'
             },
             2: {
-                name: '(relic site|reliktgebiet|site de reliques|Археологический район|遗迹地点)',
+                name: '(relic site|reliktgebiet|site de reliques|Археологический район|遗迹地点|렐릭 사이트)',
                 label: 'Relic'
             },
             3: {
-                name: '(data site|datengebiet|site de données|Информационный район|数据地点)',
+                name: '(data site|datengebiet|site de données|Информационный район|数据地点|데이터 사이트)',
                 label: 'Data'
             },
             4: {
-                name: '(gas site|gasgebiet|site de collecte de gaz|Газовый район|气云地点)',
+                name: '(gas site|gasgebiet|site de collecte de gaz|Газовый район|气云地点|가스 사이트)',
                 label: 'Gas'
             },
             5: {
-                name: '(wormhole|wurmloch|trou de ver|Червоточина|虫洞)',
+                name: '(wormhole|wurmloch|trou de ver|Червоточина|虫洞|웜홀)',
                 label: 'Wormhole'
             },
             6: {
-                name: '(ore site|mineraliengebiet|site de minerai|Астероидный район|矿石地点)',
+                name: '(ore site|mineraliengebiet|site de minerai|Астероидный район|矿石地点|채광 사이트)',
                 label: 'Ore'
             },
             7: {

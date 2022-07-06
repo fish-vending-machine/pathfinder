@@ -3121,7 +3121,9 @@ define([
         '宇宙の特異点',                                                           // ja: "Cosmic Anomaly"
         '宇宙のシグネチャ',                                                        // ja: "Cosmic Signature"
         '异常空间',                                                                 // zh: "Cosmic Anomaly"
-        '空间信号'                                                                  // zh: "Cosmic Signature"
+        '空间信号',                                                                  // zh: "Cosmic Signature"
+	'코즈믹 어노말리',						//kr "Cosmic Anomaly"                    
+        '코즈믹 시그니처' 			//kr "Cosmic Signature" 
     ];
 
     SystemSignatureModule.emptySignatureData = {
