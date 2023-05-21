@@ -972,12 +972,9 @@ define([
      * @param text
      * @returns {String}
      */
-    let unicodeToString = (text) => {
-      let result = text.replace(/\\u[\dA-F]{4}/gi,
-        function (match) {
-          return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
-      });
-      return result.substring(0, 2) == "u'" ? result.substring(2, result.length - 1) : result;
+    const unicodeToString = (text) => {
+        const result = text.replace(/\\u[\dA-F]{4}/gi, (match) => String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16)))
+        return result.substring(0, 2) == "u'" ? result.substring(2, result.length - 1) : result;
     };
 
     /**
@@ -2642,7 +2639,7 @@ define([
                 row += userName;
                 row += '</td>';
                 row += '<td>';
-                row += decodeUnicode(shipName.replace(/u'(?=[^:]+')/g, "'"));
+                row += unicodeToString(shipName);
                 row += '</td>';
                 row += '<td class="text-right txt-color txt-color-orangeLight">';
                 row += shipTypeName;
